@@ -1,0 +1,11 @@
+<% layout('layouts/boilerplate')%>
+    <h1><%=centre  %> CENTRE STUDENTS!!</h1>
+    <ul>
+        <% for(let student of students) {%> 
+        <li><a href="/students/<%=student._id%>"><%= student.name  %> </a></li>
+        <% } %> 
+    </ul>
+    <a href="/students/new">New Student</a>
+    <% if(centre !== 'All') {%> 
+    <a href="/students">All Students</a>
+    <% } %> 

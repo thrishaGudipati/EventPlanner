@@ -1,0 +1,31 @@
+
+    <h1>Edit Student Details form</h1>
+    <form action="/students/<%=student._id%>?_method=PUT" method="POST">
+        <label for="name">Student Name</label>
+        <input type="text" name="name" placeholder="Student Name" value="<%=student.name%>">
+
+        <label for="class">Class</label>
+        <input type="number" name="class" id="class" placeholder="Class" value="<%=student.class%>">
+        
+        <label for="place">Address</label>
+        <input type="text" name="place" id="place" placeholder="Address" value="<%=student.place%>">
+        <% layout('layouts/boilerplate')%>
+        <label for="motherName">Mother Name</label>
+        <input type="text" name="motherName" id="motherName" placeholder="Student Mother Name" value="<%=student.motherName%>">
+
+        <label for="fatherName">Father Name</label>
+        <input type="text" name="fatherName" id="fatherName" placeholder="Student Father Name" value="<%=student.fatherName%>">
+
+        <label for="mobile">Mobile No </label>
+        <input type="number" name="mobile" id="mobile" placeholder="Parents Mobile No" value="<%=student.mobile%>">
+
+        <label for="centre">Select Centre</label>
+        <select name="centre" id="centre">
+            <% for(let centre of centres) {%> 
+            <option value="<%=centre%>" <%= student.centre===centre?'selected':''  %>    ><%= centre  %> </option>  
+            <% } %> 
+        </select>
+        <button>Submit</button>
+    </form>
+
+    <a href="/students/<%=student._id%>">Cancel</a>

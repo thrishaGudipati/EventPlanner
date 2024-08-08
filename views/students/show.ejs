@@ -1,0 +1,18 @@
+<% layout('layouts/boilerplate')%>
+    <h1><%= student.name %></h1>
+    <ul>
+        <li>Class:<%= student.class %></li>
+        <li>Place:<%= student.place %></li>
+        <li>Mother Name:<%= student.motherName %></li>
+        <li>Father Name:<%= student.fatherName %></li>
+        <li>Parent Ph.No:<%= student.mobile %></li>
+        <li>Centre Name:<a href="/students?centre=<%= student.centre %>"><%= student.centre %></a></li>
+    </ul>
+
+    
+    <a href="/students">ALL STUDENTS</a>
+    <a href="/students/<%= student._id%>/edit">Edit STUDENT details</a>
+    <form action="/students/<%=student._id%>?_method=DELETE" method="POST">
+        <button>Delete</button>
+    </form>
+    

@@ -1,0 +1,117 @@
+<% layout('layouts/boilerplate')%>
+<div class="row">
+    <h1 class="text-center">Edit Centre</h1>
+    <div class="col-6 offset-3">
+        <form action="/centres/<%=centre._id%>?_method=PUT" method="POST" novalidate class="validated-form"
+            enctype="multipart/form-data">
+            <div class="mb-3">
+                <label class="form-label" for="title">Title</label>
+                <input class="form-control" type="text" id="title" name="centre[title]"
+                    value="<%=centre.title %>" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="location">Location</label>
+                <input class="form-control" type="text" id="location" name="centre[location]"
+                    value="<%=centre.location %>" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+
+
+
+
+
+            <div class="mb-3">
+                <label class="form-label" for="eventCelebrateName">eventCelebrateName</label>
+                <input class="form-control" type="text" id="eventCelebrateName" name="centre[eventCelebrateName]"
+                    value="<%=centre.eventCelebrateName %>" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="eventId">eventId</label>
+                <input class="form-control" type="text" id="eventId" name="centre[eventId]"
+                    value="<%=centre.eventId %>" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="eventPassword">eventPassword</label>
+                <input class="form-control" type="text" id="eventPassword" name="centre[eventPassword]"
+                    value="<%=centre.eventPassword %>" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="eventDateTime">eventDateTime</label>
+                <input class="form-control" type="text" id="eventDateTime" name="centre[eventDateTime]"
+                    value="<%=centre.eventDateTime %>" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="mb-3">
+                <label class="form-label" for="mobile">Centre mobile</label>
+                <div class="input-group">
+                    <span class="input-group-text" id="mobile-label">$</span>
+                    <input type="text" class="form-control" id="mobile" placeholder="0.00" aria-label="mobile"
+                        aria-describedby="mobile-label" name="centre[mobile]" value="<%=centre.mobile %>"
+                        required>\<div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="description">Description</label>
+                <textarea class="form-control" type="text" id="description" name="centre[description]"
+                    required><%= centre.description%></textarea>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="form-file custom-file">
+                    <input type="file" class="form-file-input" id="image" name="image" multiple>
+                    <label class="form-file-label" for="image">
+                        <span class="form-file-text custom-file-label">Add more image(s)...</span>
+                        <span class="form-file-button">Browse</span>
+                    </label>
+                </div>
+            </div>
+            <div class="mb-3">
+                <% centre.images.forEach(function(img, i) {  %>
+
+                <img src="<%=img.thumbnail %>" class="img-thumbnail" alt="">
+                <div class="form-check-inline">
+                    <input type="checkbox" id="image-<%=i%>" name="deleteImages[]" value="<%=img.filename%>">
+                </div>
+                <label for="image-<%=i%>">Delete?</label>
+                <% })%>
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-info">Update Centre</button>
+            </div>
+        </form>
+        <a href="/centres/<%= centre._id%>">Back To Centre</a>
+
+    </div>
+</div>
